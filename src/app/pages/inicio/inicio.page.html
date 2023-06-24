@@ -1,11 +1,18 @@
 <ion-header>
   <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-menu-button menu="first" color="primary"></ion-menu-button>
+    </ion-buttons>
+
     <ion-title color="primary">Componentes</ion-title>
   </ion-toolbar>
 </ion-header>
+
 <ion-content>
+  
   <ion-list>
-    <ion-item *ngFor="let c of componentes" [routerLink]="c.redirectTo" detail>
+    <ion-item *ngFor="let c of componentes | async" [routerLink]="c.redirectTo" detail>
       <ion-icon [name]="c.icon" slot="start" color="primary"></ion-icon>
         {{c.name}}
     </ion-item>
@@ -15,7 +22,44 @@
     <ion-avatar slot="start">
       <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
     </ion-avatar>
-    <ion-label>Brigida Garcia</ion-label>
+    <ion-label>Brigida Garcia Espinoza</ion-label>
   </ion-item>
 
-<ion-button>Ingresar</ion-button> <ion-button [disabled]="true">Cerrar sesión</ion-button>
+  <ion-button>Ingresar</ion-button> <ion-button [disabled]="true">Cerrar sesión</ion-button>
+
+</ion-content>
+<ion-list>
+  <ion-item>
+    <ion-input label="Default input"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input label="Input with placeholder" placeholder="Enter company name"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input label="Input with value" value="121 S Pinckney St #300"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input label="Readonly input" value="Garcia" [readonly]="true"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input label="Disabled input" value="53703" [disabled]="true"></ion-input>
+  </ion-item>
+</ion-list>
+
+<ion-input label="Default counter" labelPlacement="floating" [counter]="true" maxlength="20"></ion-input>
+
+<ion-input
+type="email"
+fill="solid"
+label="Email"
+labelPlacement="floating"
+helperText="Enter a valid email"
+errorText="Invalid email"
+ngModel
+email
+></ion-input>
+    
